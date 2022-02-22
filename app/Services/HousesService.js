@@ -29,7 +29,7 @@ class HousesService {
     }
 
     async editHouse(updatedHouse, id) {
-        const res = await api.put('cars/' + id, updatedHouse)
+        const res = await api.put('houses/' + id, updatedHouse)
         console.log('[HousesService] editHouse', res.data);
 
         const houseIndex = ProxyState.houses.findIndex(h => h.id == id)
