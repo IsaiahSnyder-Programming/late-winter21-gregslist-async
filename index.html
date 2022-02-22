@@ -11,9 +11,27 @@
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
   <title>gregslist-mvc</title>
+
+  <style>
+    body.debug .container,
+    body.debug .container-fluid {
+      outline: 2px double blue;
+      outline-offset: -2px;
+    }
+  
+    body.debug .row {
+      outline: 2px dashed red;
+      outline-offset: -2px;
+    }
+  
+    body.debug [class*="col-"] {
+      outline: 2px dotted forestgreen;
+      outline-offset: -3px;
+    }
+  </style>
 </head>
 
-<body>
+<body class="debug">
   <header>
     <nav class="navbar navbar-light navbar-expand bg-success no-select">
       <a class="navbar-brand ms-3" href="#">
@@ -29,7 +47,7 @@
       <div class="row flex-grow-1">
         <div class="col-2 bg-success">
           <h4 class="selectable p-2" onclick="app.carsController.viewCars()">Cars</h4>
-          <h4 class="selectable p-2">Houses</h4>
+          <h4 class="selectable p-2" onclick="app.housesController.viewHouses()">Houses</h4>
           <h4 class="selectable p-2">Jobs</h4>
         </div>
         <div class="col-10">
@@ -48,6 +66,11 @@
                 </div>
               </div>
             </div> -->
+
+
+            
+
+
             <!-- END OF TEMPLATE -->
           </div>
           <!-- THIS IS MY FORM -->
