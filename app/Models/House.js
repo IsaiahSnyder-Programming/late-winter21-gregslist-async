@@ -1,14 +1,14 @@
 
 export class House {
     constructor({id, bedrooms, bathrooms, levels, year, price, imgUrl, description}) {
-        this.id = id
-        this.bedrooms = bedrooms
-        this.bathrooms = bathrooms
-        this.levels = levels
-        this.year = year
-        this.price = price
-        this.imgUrl = imgUrl
-        this.description = description
+        this.id = id || ''
+        this.bedrooms = bedrooms || 0
+        this.bathrooms = bathrooms || 0
+        this.levels = levels || 0
+        this.year = year || 2000
+        this.price = price || 0
+        this.imgUrl = imgUrl || ''
+        this.description = description || ''
     }
 
 

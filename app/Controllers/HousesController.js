@@ -22,4 +22,15 @@ export class HousesController {
             Pop.toast(error.message, 'error')
         }
     }
+
+    async deleteHouse(houseId) {
+        try {
+            if(await Pop.confirm()) {
+                await housesService.deleteHouse(houseId)
+            }
+        } catch (error) {
+            console.log(error)
+            Pop.error(error)
+        }
+    }
 }
