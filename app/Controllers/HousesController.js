@@ -18,6 +18,8 @@ export class HousesController {
     async viewHouses() {
         try {
             await housesService.getAllHouses()
+            document.getElementById('modal-body-slot').innerHTML = getHouseForm()
+            document.getElementById('create-button').classList.remove('visually-hidden')
         } catch (error) {
             Pop.toast(error.message, 'error')
         }
