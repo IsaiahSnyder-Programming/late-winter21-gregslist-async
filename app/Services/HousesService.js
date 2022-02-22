@@ -12,6 +12,13 @@ class HousesService {
         ProxyState.houses = res.data.map(rd => new House(rd))
     }
 
+    async createHouse(newHouse) {
+        const res = await api.post('houses', newHouse)
+        console.log('[HouseService] createHouse()', res.data);
+        let realHouse = new House(res.data)
+        ProxyState.houses = [realHouse, ...ProxyState.houses]
+    }
+
     async deleteHouse(houseId) {
         console.log('[HousesService] deleting house', houseId);
 
@@ -19,6 +26,15 @@ class HousesService {
         console.log('[HousesService]: deleteHouse', res.data);
 
         ProxyState.houses = ProxyState.houses.filter(h => h.id != houseId)
+    }
+
+    async editHouse(updatedHouse, id) {
+        const res = await api.put('cars/' + id, updatedHouse)
+        console.log('[HousesService] editHouse', res.data);
+
+        const houseIndex = ProxyState.houses.findIndex(h => h.id == id)
+        ProxyState.houses.splice(houseIndex, 1, new House(res.data))
+        ProxyState.houses = ProxyState.houses
     }
 }
 

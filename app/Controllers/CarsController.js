@@ -23,6 +23,7 @@ export class CarsController {
       document.getElementById('create-button').classList.remove('visually-hidden')
     } catch (error) {
       Pop.toast(error.message, 'error')
+      console.log(error);
     }
   }
 
@@ -51,6 +52,7 @@ export class CarsController {
     }
     catch (error) {
       Pop.toast(error.message, 'error')
+      console.log(error);
     }
   }
 
